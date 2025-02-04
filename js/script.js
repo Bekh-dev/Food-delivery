@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const tabs = document.querySelectorAll('.tabheader__item'),
 		tabsContent = document.querySelectorAll('.tabcontent'),
 		tabsParent = document.querySelector('.tabheader__items');
-	ё;
+
 	function hideTabsContent() {
 		tabsContent.forEach(item => {
 			item.classList.add('hide');
