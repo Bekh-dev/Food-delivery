@@ -40,11 +40,19 @@ document.addEventListener('DOMContentLoaded', () => {
 	const deadline = '2025-02-25';
 
 	function getTimeRemaining(endtime) {
-		const t = Date.parse(endtime) - Date.parse(new Date()),
-			days = Math.floor(t / (1000 * 60 * 60 * 24)),
-			seconds = Math.floor((t / 1000) % 60),
-			minutes = Math.floor((t / 1000 / 60) % 60),
+		let days, seconds, minutes, hours;
+		const t = Date.parse(endtime) - Date.parse(new Date());
+		if (t <= 0) {
+			days = 0;
+			seconds = 0;
+			minutes = 0;
+			hours = 0;
+		} else {
+			days = Math.floor(t / (1000 * 60 * 60 * 24));
+			seconds = Math.floor((t / 1000) % 60);
+			minutes = Math.floor((t / 1000 / 60) % 60);
 			hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+		}
 
 		return {
 			total: t,
